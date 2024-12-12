@@ -13,10 +13,10 @@ const Login = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value, 
+      [name]: value,
     }));
   };
 
@@ -26,22 +26,19 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await login(formData); 
+      const response = await login(formData);
       setMessage({ type: "success", text: "login successful!" });
-      
+
       localStorage.setItem("token", response);
 
       const decodedToken = jwtDecode(response);
 
       if (decodedToken.scope === "ADMIN") {
         console.log("User is an admin");
-
       } else if (decodedToken.scope === "FREELANCER") {
-        console.log("User is a freelancer");
-
+        navigate("/freelancer/profile");
       } else if (decodedToken.scope === "CLIENT") {
         navigate("/client/profile");
-
       } else {
         console.log("User role is unknown or not authorized");
       }

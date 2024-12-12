@@ -54,9 +54,101 @@ export const details = async (token) => {
   }
 };
 
-export const saveClientDetails = async (profileData,token) => {
+
+
+export const saveClientDetails = async (profileData, token) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/client/save`,profileData, {
+    const response = await axios.post(
+      `${API_BASE_URL}/client/save`,
+      profileData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const saveProject = async (projectData, token) => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/client/add/project`,
+      projectData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const Projects = async (token) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/client/projects`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+
+
+// Freelancer
+export const freelancerDetails = async (token) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/freelancer/profile`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const saveFreelancerDetails = async (profileData, token) => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/freelancer/save`,
+      profileData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const freelancerProjects = async (token) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/freelancer/projects`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import Sidebar from "./Sidebar";
+import { saveProject } from "../../api/Api";
 const AddProject = () => {
+  const token = localStorage.getItem("token");
+
   const [projectData, setProjectData] = useState({
     title: "",
     duration: "",
@@ -19,10 +22,21 @@ const AddProject = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const [message, setMessage] = useState(null);
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log("Project Data:", projectData);
-    // Add your submit logic here
+    try {
+      const response = await saveProject(projectData, token); // Call the API
+      setMessage({ type: "success", text: "Sign-up successful!" });
+      console.log("Sign-up response:", response);
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: "Failed to sign up. Please try again.",
+      });
+    }
   };
 
   return (

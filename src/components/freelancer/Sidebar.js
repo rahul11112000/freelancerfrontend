@@ -19,23 +19,23 @@ const Sidebar = () => {
             <ul className="list-unstyled">
               <li className="mb-3">
                 <a
-                  href="/client/profile"
+                  href="/freelancer/profile"
                   className="text-decoration-none text-dark"
                 >
                   Profile
                 </a>
               </li>
-              <li className="mb-3">
+              {/* <li className="mb-3">
                 <a
                   href="/client/add/project"
                   className="text-decoration-none text-dark"
                 >
                   ADD Project
                 </a>
-              </li>
+              </li> */}
               <li className="mb-3">
                 <a
-                  href="/client/show/project"
+                  href="/freelancer/show/project"
                   className="text-decoration-none text-dark"
                 >
                   Display Projects
