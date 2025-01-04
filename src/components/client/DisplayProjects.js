@@ -41,6 +41,14 @@ const DisplayProject = () => {
                     <p>{project.description}</p>
                     <b>Skills: </b>
                     <p>{project.skills}</p>
+                    <div className="d-grid col-md-5">
+                      <a
+                        href={`/client/check/${project.id}`}
+                        className="btn btn-primary"
+                      >
+                        check Updates
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}

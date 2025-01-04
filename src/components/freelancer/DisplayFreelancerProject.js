@@ -41,14 +41,14 @@ const DisplayFreelancerProject = () => {
                     <p>{project.description}</p>
                     <b>Skills: </b>
                     <p>{project.skills}</p>
-                  </div>
-                  <div className="d-grid gap-2 mt-3">
-                    <a href="/add/fund" className="btn btn-primary">
-                      Apply for projects
-                    </a>
-                    {/* <a href="/transfer/money" className="btn btn-primary">
-                      Transfer Money
-                    </a> */}
+                    <div className="d-grid col-md-2">
+                      <a
+                        href={`/freelancer/apply/${project.id}`}
+                        className="btn btn-primary"
+                      >
+                        Apply
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}

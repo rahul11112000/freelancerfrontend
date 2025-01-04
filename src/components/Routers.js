@@ -7,6 +7,8 @@ import AddProject from "./client/AddProjects";
 import DisplayProject from "./client/DisplayProjects";
 import FreelancerProfile from "./freelancer/FreelancerProfile";
 import DisplayFreelancerProject from "./freelancer/DisplayFreelancerProject";
+import ApplyProject from "./freelancer/ApplyProject";
+import CheckUpdate from "./client/CheckUpdate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 function Routers() {
@@ -20,6 +22,8 @@ function Routers() {
         <Route path="/client/add/project" element={<AddProject />} />
         <Route path="/client/show/project" element={<DisplayProject />} />
         <Route path="/freelancer/profile" element={<FreelancerProfile />} />
+        <Route path="/freelancer/apply/:id" element={<ApplyProject />} />
+        <Route path="/client/check/:projectId" element={<CheckUpdate />} />
         <Route
           path="/freelancer/show/project"
           element={<DisplayFreelancerProject />}
